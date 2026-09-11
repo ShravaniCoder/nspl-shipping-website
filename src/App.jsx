@@ -1367,7 +1367,13 @@ function App() {
               rights reserved.
             </span>
             <span className="font-medium">
-              Developed & Managed by Silicon Systems & Securities • 80804 95101
+              Developed & Managed by Silicon Systems & Securities •{" "}
+              <a
+                href="tel:+918080495101"
+                className="font-semibold text-nspl-brown transition hover:text-nspl-goldDark"
+              >
+                80804 95101
+              </a>
             </span>
           </div>
         </div>
