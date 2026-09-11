@@ -25,52 +25,223 @@ import {
   CircleDot,
   Plus,
   Minus,
+  Target,
+  Compass,
+  Handshake,
+  Layers,
 } from "lucide-react";
+import Hero from "../public/hero.png";
 
+/* ---------- SERVICES (matches PDF icon strip: NVOCC / Freight Forwarding / Project Cargo /
+   Transportation / Warehousing / Customs) ---------- */
 const services = [
   {
+    icon: Anchor,
+    title: "NVOCC & Ocean Freight",
+    text: "FCL solutions across 20' GP, 40' GP and 40' High Cube equipment, with special equipment coordination including Open Top, Flat Rack and more, subject to cargo, route and operational availability.",
+    tag: "NVOCC",
+  },
+  {
     icon: Ship,
-    title: "Ocean Freight Forwarding",
-    text: "FCL, LCL and containerised ocean freight solutions for import and export cargo, with carrier coordination across major global trade lanes.",
-    tag: "SEA",
-  },
-  {
-    icon: Plane,
-    title: "Air Freight Services",
-    text: "Time-critical air cargo solutions for urgent, high-value and perishable shipments, backed by dependable airline coordination worldwide.",
-    tag: "AIR",
-  },
-  {
-    icon: Truck,
-    title: "Land Transportation",
-    text: "Domestic road freight connecting ports, ICDs, factories and warehouses across India with reliable first- and last-mile delivery.",
-    tag: "ROAD",
+    title: "International Freight Forwarding",
+    text: "Sea-freight movements coordinated with origin and destination partners for a single communication window across booking, documentation, transport and exception management.",
+    tag: "FORWARDING",
   },
   {
     icon: Boxes,
-    title: "Project & Heavy-Lift Logistics",
-    text: "Engineering-led handling of oversized, heavy-lift and break-bulk project cargo, from route survey through final site delivery.",
+    title: "Project Cargo & Breakbulk",
+    text: "Planning and coordination for oversized, out-of-gauge and project cargo: route review, equipment selection, lashing/survey interfaces and port handling through specialist partners.",
     tag: "PROJECT",
   },
   {
-    icon: Warehouse,
-    title: "Warehousing & 3PL",
-    text: "Secure storage, inventory management, pick-pack and distribution services that scale with your supply chain requirements.",
+    icon: Truck,
+    title: "Transportation & 3PL",
+    text: "First-mile and last-mile container and cargo transport connecting factories, warehouses, ports, CFSs and ICDs across India.",
     tag: "3PL",
   },
   {
+    icon: Warehouse,
+    title: "Warehousing & Distribution",
+    text: "Storage, handling, inventory and distribution solutions delivered through qualified facilities and logistics partners, tailored to customer requirements.",
+    tag: "WAREHOUSE",
+  },
+  {
     icon: FileCheck2,
-    title: "Customs Clearance",
-    text: "End-to-end import and export documentation, HS classification and customs clearance coordination for faster, compliant cargo movement.",
+    title: "Customs Coordination",
+    text: "Import and export customs-clearance coordination through authorised customs-broker partners, including document readiness and clearance-status follow-up.",
     tag: "CUSTOMS",
   },
 ];
 
+/* ---------- CORE NVOCC CAPABILITIES ---------- */
+const nvoccCapabilities = [
+  "FCL solutions for standard dry equipment including 20' GP, 40' GP and 40' High Cube.",
+  "Special equipment coordination, including Open Top, Flat Rack and other suitable equipment, subject to cargo, route and operational availability.",
+  "Export and import box-operation coordination, including release planning, terminal/depot interfaces and shipment milestone follow-up.",
+  "Carrier slot and sailing coordination to identify practical routing and transit options.",
+  "Empty-equipment positioning and container availability coordination through operating partners, where applicable.",
+  "House Bill of Lading / shipping-document coordination and manifest support, subject to applicable registrations, contractual arrangements and regulatory requirements.",
+  "Port-to-port and multimodal solutions connecting ports, CFSs, ICDs, factories and warehouses.",
+];
+
+/* ---------- FORWARDING GRID (Export / Import / Routing / Visibility / Partners / Support) ---------- */
+const forwardingGrid = [
+  ["Export", "Booking, Equipment, Documentation"],
+  ["Import", "Origin, Arrival, Delivery coordination"],
+  ["Routing", "Direct / transshipment options"],
+  ["Visibility", "Milestone and exception updates"],
+  ["Partners", "Overseas agent coordination"],
+  ["Support", "Commercial + operational follow-up"],
+];
+
+/* ---------- INTEGRATED LOGISTICS PORTFOLIO ---------- */
+const portfolio = [
+  {
+    title: "Project & Breakbulk Cargo",
+    text: "Planning and coordination for oversized, out-of-gauge and project cargo, including route review, equipment selection, lashing/survey interfaces and port handling through specialist partners.",
+  },
+  {
+    title: "Heavy-Lift & Special Equipment",
+    text: "Coordination of Flat Rack, Open Top and specialised transport/equipment solutions based on cargo dimensions, weight, route feasibility and carrier acceptance.",
+  },
+  {
+    title: "Port / CFS / ICD Coordination",
+    text: "Cargo and container movement interfaces across ports, terminals, CFSs and ICDs, including gate, handling and transport coordination.",
+  },
+  {
+    title: "Warehousing & 3PL",
+    text: "Storage, handling, inventory and distribution solutions through qualified facilities and logistics partners, based on customer requirements.",
+  },
+  {
+    title: "Customs Clearance Support",
+    text: "Import/export customs-clearance coordination through authorised customs-broker partners, including document readiness and clearance-status follow-up.",
+  },
+  {
+    title: "Domestic Transportation",
+    text: "First-mile and last-mile container/cargo transport between factories, warehouses, ports, CFSs and ICDs.",
+  },
+];
+
+/* ---------- CARGO EXPERTISE & CUSTOMER SEGMENTS ---------- */
+const cargoSegments = [
+  [
+    "Automotive & Ancillary",
+    "Components, machinery, tooling and industrial supplies.",
+  ],
+  [
+    "Engineering & Industrial",
+    "Machinery, fabricated equipment and project-related cargo.",
+  ],
+  [
+    "FMCG & Retail",
+    "Regular containerised cargo requiring schedule and inventory discipline.",
+  ],
+  [
+    "Pharma & Healthcare",
+    "General cargo logistics subject to applicable handling and compliance requirements.",
+  ],
+  [
+    "Chemicals, Non-Hazardous",
+    "Approved non-hazardous cargo subject to documentation and carrier acceptance.",
+  ],
+  [
+    "Trading & General Cargo",
+    "Import/export cargo across standard ocean-freight trade lanes.",
+  ],
+];
+
+/* ---------- HOW WE WORK (6-step process from the profile) ---------- */
+const howWeWork = [
+  [
+    Route,
+    "Understand",
+    "Commodity, dimensions, weight, Incoterms, origin, destination and required timeline.",
+  ],
+  [
+    Compass,
+    "Design",
+    "The movement: equipment, routing, sailing, transport and documentation plan.",
+  ],
+  [
+    FileCheck2,
+    "Quote",
+    "Transparently, with clearly defined scope, freight and applicable local/service charges.",
+  ],
+  [
+    Container,
+    "Execute",
+    "Closely: booking, equipment, documentation, terminal/depot and partner coordination.",
+  ],
+  [
+    PackageCheck,
+    "Keep Informed",
+    "Customers updated with milestone tracking, exceptions and practical recovery actions.",
+  ],
+  [
+    CheckCircle2,
+    "Close",
+    "The shipment: delivery coordination, documentation completion and service review.",
+  ],
+];
+
+/* ---------- STRATEGIC FOUNDATIONS ---------- */
+const foundations = [
+  {
+    icon: Target,
+    title: "Vision",
+    text: "To build NSPL into a dependable and respected Indian shipping and integrated logistics brand with strong customer relationships and an expanding international partner network.",
+  },
+  {
+    icon: Compass,
+    title: "Mission",
+    text: "To simplify cargo movement through responsive service, transparent communication, practical solutions and disciplined execution.",
+  },
+  {
+    icon: Handshake,
+    title: "Values",
+    text: "Integrity, Customer Focus, Reliability, Agility, Collaboration, Continuous Improvement",
+  },
+];
+
+/* ---------- WHY NSPL (from profile: Why NSPL page) ---------- */
+const whyNspl = [
+  [
+    ShieldCheck,
+    "Customer-First Execution",
+    "We start with the customer's shipment requirement and build the logistics plan around it.",
+  ],
+  [
+    Layers,
+    "Single-Point Coordination",
+    "One responsive interface across ocean freight and associated logistics activities.",
+  ],
+  [
+    Clock3,
+    "Commercial Discipline",
+    "Competitive options with clarity on scope, routing and operational assumptions.",
+  ],
+  [
+    Globe2,
+    "Flexible Network Model",
+    "Carrier, overseas-agent and specialist-partner coordination based on each shipment.",
+  ],
+  [
+    Headphones,
+    "Operational Visibility",
+    "Proactive milestone follow-up and early communication of exceptions.",
+  ],
+  [
+    Boxes,
+    "Long-Term Mindset",
+    "We aim to earn repeat business through service consistency, not one-time transactions.",
+  ],
+];
+
 const stats = [
-  ["End-to-End", "Logistics support"],
-  ["24/7", "Customer assistance"],
-  ["Global", "Trade connectivity"],
-  ["One", "Trusted partner"],
+  ["People", "Driven partnerships"],
+  ["Partnership", "Built on trust"],
+  ["Progress", "Toward every shipment"],
+  ["Global Reach", "Local commitment"],
 ];
 
 const markets = [
@@ -85,7 +256,7 @@ const markets = [
 const faqs = [
   {
     q: "What shipping and logistics services does NSPL offer?",
-    a: "Naventra Shipping India Pvt Ltd offers ocean freight (FCL/LCL), air freight, domestic land transportation, project and heavy-lift logistics, warehousing and 3PL services, and customs clearance for import and export shipments.",
+    a: "Naventra Shipping India Pvt Ltd (NSPL) coordinates NVOCC and ocean freight, international freight forwarding, project cargo and breakbulk, transportation and 3PL, warehousing and distribution, and customs clearance coordination for import and export shipments.",
   },
   {
     q: "Which locations does NSPL serve?",
@@ -93,11 +264,15 @@ const faqs = [
   },
   {
     q: "Does NSPL handle both import and export cargo?",
-    a: "Yes. We manage both import and export logistics, including documentation, customs clearance and coordination with carriers and partners at origin and destination.",
+    a: "Yes. We coordinate both import and export logistics, including documentation, customs clearance and coordination with carriers and partners at origin and destination.",
+  },
+  {
+    q: "What kind of cargo does NSPL support?",
+    a: "We support a broad range of non-restricted commercial cargo, including automotive and ancillary, engineering and industrial, FMCG and retail, pharma and healthcare, non-hazardous chemicals, and trading and general cargo, subject to carrier acceptance and applicable regulations.",
   },
   {
     q: "How can I get a freight quote from NSPL?",
-    a: "You can request a quote by filling in your cargo, origin and destination details through our contact section, or by emailing us directly at info@nspl.in.",
+    a: "You can request a quote by sharing your cargo, origin and destination details through our contact section, or by emailing us directly at ops@nsplmum.in or sales@nsplmum.in.",
   },
 ];
 
@@ -105,7 +280,7 @@ const initialQuoteForm = {
   name: "",
   email: "",
   phone: "",
-  service: "Ocean Freight",
+  service: "NVOCC & Ocean Freight",
   origin: "",
   destination: "",
   message: "",
@@ -137,7 +312,7 @@ function QuoteForm() {
   const handleSubmit = () => {
     if (!validate()) return;
 
-    const subject = `Quote Request — ${fields.service} (${fields.origin} to ${fields.destination})`;
+    const subject = `Quote Request - ${fields.service} (${fields.origin} to ${fields.destination})`;
     const body = [
       `Name: ${fields.name}`,
       `Email: ${fields.email}`,
@@ -150,7 +325,7 @@ function QuoteForm() {
       fields.message || "Not provided",
     ].join("\n");
 
-    window.location.href = `mailto:info@nspl.in?subject=${encodeURIComponent(
+    window.location.href = `mailto:ops@nsplmum.in?subject=${encodeURIComponent(
       subject,
     )}&body=${encodeURIComponent(body)}`;
 
@@ -159,14 +334,14 @@ function QuoteForm() {
 
   if (submitted) {
     return (
-      <div className="flex flex-col items-start gap-3 rounded-2xl border border-[#E1D6C5] bg-white p-8 sm:p-10">
+      <div className="flex flex-col items-start gap-3 rounded-2xl border border-[#E1D6C5] bg-white p-6 sm:p-8 md:p-10">
         <CheckCircle2 size={30} className="text-nspl-goldDark" />
-        <h3 className="font-serif text-2xl text-nspl-brown">
+        <h3 className="font-serif text-xl sm:text-2xl text-nspl-brown">
           Your enquiry is ready to send
         </h3>
         <p className="text-sm leading-6 text-nspl-copper">
           We've opened your email app with your quote request pre-filled to
-          info@nspl.in. If it didn't open, email us directly with your cargo,
+          ops@nsplmum.in. If it didn't open, email us directly with your cargo,
           origin and destination details.
         </p>
         <button
@@ -175,7 +350,7 @@ function QuoteForm() {
             setFields(initialQuoteForm);
             setSubmitted(false);
           }}
-          className="mt-2 inline-flex items-center gap-2 rounded-full border border-[#CDBFA9] bg-white px-5 py-2.5 text-sm font-semibold text-nspl-brown transition hover:border-nspl-gold"
+          className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-full border border-[#CDBFA9] bg-white px-5 py-2.5 text-sm font-semibold text-nspl-brown transition hover:border-nspl-gold sm:w-auto sm:justify-start"
         >
           Submit another request
         </button>
@@ -189,8 +364,10 @@ function QuoteForm() {
   const errorClasses = "mt-1 text-xs font-medium text-red-600";
 
   return (
-    <div className="rounded-2xl border border-[#E1D6C5] bg-white p-6 shadow-[0_18px_45px_rgba(92,58,11,.08)] sm:p-8">
-      <h3 className="font-serif text-2xl text-nspl-brown">Request a Quote</h3>
+    <div className="rounded-2xl border border-[#E1D6C5] bg-white p-5 shadow-[0_18px_45px_rgba(92,58,11,.08)] sm:p-6 md:p-8">
+      <h3 className="font-serif text-xl sm:text-2xl text-nspl-brown">
+        Request a Quote
+      </h3>
       <p className="mt-1.5 text-sm text-nspl-copper">
         Fill in a few details and we'll get back to you with a tailored freight
         solution.
@@ -236,7 +413,7 @@ function QuoteForm() {
             type="tel"
             value={fields.phone}
             onChange={update("phone")}
-            placeholder="+91 XX XXX XXXXX"
+            placeholder="+91 86523 24515"
             className={inputClasses}
           />
         </div>
@@ -251,12 +428,12 @@ function QuoteForm() {
             onChange={update("service")}
             className={inputClasses}
           >
-            <option>Ocean Freight</option>
-            <option>Air Freight</option>
-            <option>Land Transportation</option>
-            <option>Project Logistics</option>
-            <option>Warehousing & 3PL</option>
-            <option>Customs Clearance</option>
+            <option>NVOCC & Ocean Freight</option>
+            <option>International Freight Forwarding</option>
+            <option>Project Cargo & Breakbulk</option>
+            <option>Transportation & 3PL</option>
+            <option>Warehousing & Distribution</option>
+            <option>Customs Coordination</option>
           </select>
         </div>
 
@@ -324,13 +501,13 @@ function App() {
 
   useEffect(() => {
     document.title =
-      "NSPL | Naventra Shipping India Pvt Ltd — Freight Forwarding & Logistics Company in Navi Mumbai, India";
+      "NSPL | Naventra Shipping India Pvt Ltd - NVOCC, Freight Forwarding & Integrated Logistics in Navi Mumbai, India";
 
     const description =
-      "Naventra Shipping India Pvt Ltd (NSPL) is a Navi Mumbai based freight forwarding and logistics company offering ocean freight, air freight, land transportation, project logistics, warehousing, 3PL and customs clearance services across India and global trade markets.";
+      "Naventra Shipping India Pvt Ltd (NSPL) is a Navi Mumbai based NVOCC, ocean freight and integrated logistics company offering freight forwarding, project & breakbulk cargo, transportation & 3PL, warehousing & distribution, and customs clearance coordination across India and global trade markets.";
 
     const keywords =
-      "freight forwarding company India, logistics company Navi Mumbai, ocean freight forwarders, air freight services India, customs clearance agent Mumbai, project cargo logistics, 3PL warehousing India, international shipping company, NSPL Naventra Shipping";
+      "NVOCC India, ocean freight forwarders, freight forwarding company India, logistics company Navi Mumbai, project cargo logistics, breakbulk cargo, 3PL warehousing India, customs clearance coordination, international shipping company, NSPL Naventra Shipping";
 
     const setMeta = (name, content, attr = "name") => {
       let el = document.querySelector(`meta[${attr}="${name}"]`);
@@ -374,11 +551,12 @@ function App() {
       name: "Naventra Shipping India Pvt Ltd",
       alternateName: "NSPL",
       description,
-      email: "info@nspl.in",
+      email: "ops@nsplmum.in",
+      telephone: "+91 86523 24515",
+      url: "https://nsplmum.in",
       address: {
         "@type": "PostalAddress",
-        streetAddress:
-          "6TH FLOOR, 604, Akshat Elite, Bhendkhal Road, Aashirwad Stationery & General Store, Dronagiri",
+        streetAddress: "604, 6th Floor, Akshat Elite, Bhendkhal Road, Dronagri",
         addressLocality: "Navi Mumbai",
         addressRegion: "Maharashtra",
         postalCode: "400702",
@@ -393,6 +571,8 @@ function App() {
     ["Home", "home"],
     ["About", "about"],
     ["Services", "services"],
+    ["Portfolio", "portfolio"],
+    ["Industries", "industries"],
     ["Why NSPL", "why-nspl"],
     ["Contact", "contact"],
   ];
@@ -400,13 +580,13 @@ function App() {
   return (
     <div className="min-h-screen w-full max-w-[100vw] overflow-x-hidden bg-[#FDFBF6] text-nspl-charcoal">
       {/* Slim business announcement */}
-      <div className="border-b border-[#E7DDCC] bg-white px-4 py-2 text-center text-[9px] font-semibold uppercase tracking-[0.18em] text-nspl-brown sm:px-5 sm:text-[10px] sm:tracking-[0.25em] md:text-xs">
-        Global Shipping • Freight Forwarding • Logistics
+      <div className="border-b border-[#E7DDCC] bg-white px-3 py-2 text-center text-[8px] font-semibold uppercase leading-relaxed tracking-[0.14em] text-nspl-brown xs:text-[9px] sm:px-5 sm:text-[10px] sm:tracking-[0.25em] md:text-xs">
+        NVOCC • Ocean Freight • Freight Forwarding • Integrated Logistics
       </div>
 
       {/* NAVBAR */}
       <header className="sticky top-0 z-50 border-b border-[#E7DDCC] bg-white/95 backdrop-blur">
-        <div className="container-nspl flex h-[76px] items-center justify-between sm:h-[88px] lg:h-[104px]">
+        <div className="container-nspl flex h-[68px] items-center justify-between sm:h-[88px] lg:h-[104px]">
           <a
             href="#home"
             aria-label="NSPL - Naventra Shipping India Pvt Ltd home"
@@ -417,13 +597,13 @@ function App() {
               alt="Naventra Shipping India Pvt Ltd logo"
               width="260"
               height="112"
-              className="h-[52px] w-auto max-w-[150px] object-contain mix-blend-multiply sm:h-[68px] sm:max-w-[210px] lg:h-[92px] lg:max-w-[260px]"
+              className="h-[44px] w-auto max-w-[130px] object-contain mix-blend-multiply sm:h-[68px] sm:max-w-[210px] lg:h-[92px] lg:max-w-[260px]"
             />
           </a>
 
           <nav
             aria-label="Main navigation"
-            className="hidden items-center gap-6 lg:flex lg:gap-8"
+            className="hidden items-center gap-5 lg:flex lg:gap-7"
           >
             {nav.map(([label, id]) => (
               <a
@@ -454,7 +634,7 @@ function App() {
         </div>
 
         {open && (
-          <div className="border-t border-[#E7DDCC] bg-white px-5 py-5 lg:hidden">
+          <div className="border-t border-[#E7DDCC] bg-white px-5 py-5 lg:hidden max-h-[80vh] overflow-y-auto">
             <nav className="container-nspl flex flex-col gap-5">
               {nav.map(([label, id]) => (
                 <a
@@ -479,42 +659,44 @@ function App() {
       </header>
 
       <main>
-        {/* HERO — white/cream instead of a heavy color background */}
+        {/* HERO - full-screen, image fills the section */}
         <section
           id="home"
-          className="relative overflow-hidden border-b border-[#E7DDCC] bg-white"
+          className="relative flex min-h-[100svh] w-full items-center overflow-hidden border-b border-[#DDE8F1]"
         >
-          <div className="pointer-events-none absolute right-0 top-0 hidden h-full w-[42%] opacity-70 sm:block">
-            <div className="absolute right-[-8rem] top-[-8rem] h-[34rem] w-[34rem] rounded-full border border-nspl-gold/20" />
-            <div className="absolute right-[-3rem] top-[-3rem] h-[25rem] w-[25rem] rounded-full border border-nspl-gold/15" />
-            <div className="absolute right-[5rem] top-[4rem] h-3 w-3 rounded-full bg-nspl-gold" />
-            <div className="absolute right-[16rem] top-[13rem] h-2 w-2 rounded-full bg-nspl-brown" />
-          </div>
+          {/* Full-bleed background image */}
+          <img
+            src={Hero}
+            alt="Global shipping and logistics port with container vessel and cargo connectivity"
+            className="absolute inset-0 h-full w-full object-cover object-center"
+          />
 
-          <div className="container-nspl relative grid min-h-0 items-center gap-10 py-14 sm:gap-14 sm:py-20 lg:min-h-[650px] lg:grid-cols-[1.02fr_.98fr] lg:py-24">
-            <div>
-              <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-[#E3D6C2] bg-[#FDFBF6] px-3.5 py-1.5 text-[9px] font-bold uppercase tracking-[0.15em] text-nspl-brown sm:mb-6 sm:px-4 sm:py-2 sm:text-[10px] sm:tracking-[0.2em]">
-                <CircleDot size={13} className="text-nspl-gold" />
+          {/* Readability gradient over the image */}
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#06284A]/90 via-[#06284A]/70 to-[#06284A]/25" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#06284A]/70 to-transparent" />
+
+          <div className="container-nspl relative py-20 sm:py-28 lg:py-0">
+            <div className="max-w-2xl">
+              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1.5 text-[8px] font-bold uppercase tracking-[0.12em] text-nspl-paleGold backdrop-blur-sm sm:mb-6 sm:gap-3 sm:px-4 sm:py-2 sm:text-[10px] sm:tracking-[0.2em]">
+                <CircleDot size={12} className="shrink-0 text-nspl-gold" />
                 Naventra Shipping India Pvt Ltd
               </div>
 
-              <h1 className="max-w-4xl font-serif text-4xl leading-[1.08] tracking-[-0.01em] text-nspl-deep sm:text-5xl sm:leading-[1.04] sm:tracking-[-0.02em] lg:text-6xl xl:text-[4.6rem]">
-                Freight forwarding
-                <span className="block text-nspl-goldDark">
-                  and logistics, done right.
-                </span>
+              <h1 className="max-w-2xl font-serif text-3xl leading-[1.12] tracking-[-0.01em] text-white xs:text-4xl sm:text-5xl sm:leading-[1.04] sm:tracking-[-0.02em] lg:text-6xl xl:text-[4.4rem]">
+                Navigating your
+                <span className="block text-nspl-gold">business forward.</span>
               </h1>
 
-              <div className="my-6 h-px w-24 bg-gradient-to-r from-nspl-gold to-transparent sm:my-7 sm:w-32" />
+              <div className="my-5 h-px w-20 bg-gradient-to-r from-nspl-gold to-transparent sm:my-7 sm:w-32" />
 
-              <p className="max-w-2xl text-base leading-7 text-nspl-copper sm:text-lg sm:leading-8">
-                Naventra Shipping India Pvt Ltd (NSPL) is a Navi Mumbai based
-                freight forwarding and logistics company, delivering practical,
-                end-to-end shipping solutions across ocean, air and land — with
-                clarity, reliability and care.
+              <p className="max-w-xl text-sm leading-6 text-white/85 sm:text-lg sm:leading-8">
+                NSPL is a Navi Mumbai based NVOCC, ocean freight and integrated
+                logistics company, coordinating freight forwarding, project
+                cargo, transportation, warehousing and customs clearance across
+                global trade lanes. Moving possibilities to a brighter tomorrow.
               </p>
 
-              <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row">
+              <div className="mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row">
                 <a
                   href="#contact"
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-nspl-gold px-6 py-3.5 font-bold text-nspl-deep transition hover:bg-nspl-goldDark hover:text-white sm:px-7 sm:py-4"
@@ -523,161 +705,56 @@ function App() {
                 </a>
                 <a
                   href="#services"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-[#CDBFA9] bg-white px-6 py-3.5 font-semibold text-nspl-brown transition hover:border-nspl-gold hover:bg-[#FDFBF6] sm:px-7 sm:py-4"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/40 bg-white/5 px-6 py-3.5 font-semibold text-white backdrop-blur-sm transition hover:border-nspl-gold hover:text-nspl-gold sm:px-7 sm:py-4"
                 >
                   Explore Services <ChevronDown size={18} />
                 </a>
               </div>
 
-              <div className="mt-10 grid max-w-xl grid-cols-2 gap-x-6 gap-y-6 sm:mt-12 sm:gap-x-7 sm:grid-cols-4">
+              <div className="mt-9 grid max-w-xl grid-cols-2 gap-x-5 gap-y-5 sm:mt-12 sm:gap-x-7 sm:gap-y-6 sm:grid-cols-4">
                 {stats.map(([number, label]) => (
                   <div
                     key={label}
-                    className="border-l border-nspl-gold/30 pl-3"
+                    className="border-l border-nspl-gold/40 pl-3"
                   >
-                    <div className="font-serif text-lg text-nspl-brown sm:text-xl">
+                    <div className="font-serif text-base text-white sm:text-xl">
                       {number}
                     </div>
-                    <div className="mt-1 text-[11px] leading-5 text-nspl-copper">
+                    <div className="mt-1 text-[10px] leading-5 text-white/70 sm:text-[11px]">
                       {label}
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-
-            {/* BUSINESS ROUTE VISUAL */}
-            <div className="relative mx-auto w-full max-w-xl">
-              <div className="rounded-[1.5rem] border border-[#E1D4C0] bg-[#FDFBF6] p-3 shadow-[0_25px_70px_rgba(92,58,11,.10)] sm:rounded-[2rem] sm:p-4 sm:p-5">
-                <div className="relative min-h-[320px] overflow-hidden rounded-[1.25rem] border border-[#E8DECF] bg-white sm:min-h-[430px] sm:rounded-[1.5rem]">
-                  {/* route lines */}
-                  <svg
-                    aria-hidden="true"
-                    className="absolute inset-0 h-full w-full"
-                    viewBox="0 0 600 430"
-                    fill="none"
-                    preserveAspectRatio="xMidYMid slice"
-                  >
-                    <path
-                      d="M70 325 C145 270, 180 160, 285 185 S390 275, 515 105"
-                      stroke="#D4A017"
-                      strokeWidth="2"
-                      strokeDasharray="7 8"
-                      opacity=".75"
-                    />
-                    <path
-                      d="M70 325 C165 360, 225 315, 310 300 S430 235, 515 105"
-                      stroke="#8B5E34"
-                      strokeWidth="1.5"
-                      strokeDasharray="5 8"
-                      opacity=".38"
-                    />
-                    <circle cx="70" cy="325" r="7" fill="#5C3A0B" />
-                    <circle cx="285" cy="185" r="7" fill="#D4A017" />
-                    <circle cx="515" cy="105" r="7" fill="#5C3A0B" />
-                  </svg>
-
-                  <div className="absolute left-5 top-5 sm:left-7 sm:top-7">
-                    <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-nspl-goldDark sm:text-[10px] sm:tracking-[0.25em]">
-                      Cargo journey
-                    </p>
-                    <h2 className="mt-2 font-serif text-lg text-nspl-brown sm:text-2xl">
-                      Origin → Destination
-                    </h2>
-                  </div>
-
-                  <div className="absolute bottom-5 left-5 rounded-xl border border-[#E6DCCB] bg-white p-3 shadow-sm sm:bottom-8 sm:left-7 sm:rounded-2xl sm:p-4">
-                    <div className="flex items-center gap-2.5 sm:gap-3">
-                      <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#F7EFD8] text-nspl-goldDark sm:h-10 sm:w-10">
-                        <Container size={18} />
-                      </div>
-                      <div>
-                        <p className="text-[11px] font-bold text-nspl-brown sm:text-xs">
-                          Shipment ready
-                        </p>
-                        <p className="text-[10px] text-nspl-copper sm:text-[11px]">
-                          Coordinated end-to-end
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="absolute right-5 top-16 rounded-xl border border-[#E6DCCB] bg-white p-3 shadow-sm sm:right-7 sm:top-24 sm:rounded-2xl sm:p-4">
-                    <div className="flex items-center gap-2.5 sm:gap-3">
-                      <Globe2
-                        size={20}
-                        className="text-nspl-goldDark sm:hidden"
-                      />
-                      <Globe2
-                        size={24}
-                        className="hidden text-nspl-goldDark sm:block"
-                      />
-                      <div>
-                        <p className="text-[11px] font-bold text-nspl-brown sm:text-xs">
-                          Global reach
-                        </p>
-                        <p className="text-[10px] text-nspl-copper sm:text-[11px]">
-                          Connected trade lanes
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="absolute bottom-5 right-5 grid grid-cols-3 gap-1.5 sm:bottom-8 sm:right-7 sm:gap-2">
-                    {[
-                      [Ship, "SEA"],
-                      [Plane, "AIR"],
-                      [Truck, "ROAD"],
-                    ].map(([Icon, label]) => (
-                      <div
-                        key={label}
-                        className="flex h-12 w-12 flex-col items-center justify-center rounded-xl border border-[#E6DCCB] bg-[#FDFBF6] sm:h-16 sm:w-16"
-                      >
-                        <Icon
-                          size={16}
-                          className="text-nspl-goldDark sm:hidden"
-                        />
-                        <Icon
-                          size={19}
-                          className="hidden text-nspl-goldDark sm:block"
-                        />
-                        <span className="mt-1 text-[8px] font-bold tracking-widest text-nspl-brown sm:text-[9px]">
-                          {label}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="absolute left-5 top-[52%] -translate-y-1/2 rounded-full border border-nspl-gold/30 bg-white p-3 shadow-sm sm:left-8 sm:top-[56%] sm:p-4">
-                    <Anchor
-                      size={20}
-                      className="text-nspl-goldDark sm:hidden"
-                    />
-                    <Anchor
-                      size={25}
-                      className="hidden text-nspl-goldDark sm:block"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
+
+          {/* Scroll cue */}
+          <a
+            href="#about"
+            aria-label="Scroll to learn more"
+            className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 animate-bounce text-white/70 sm:block"
+          >
+            <ChevronDown size={26} />
+          </a>
         </section>
 
         {/* TRUST STRIP */}
         <section className="border-b border-[#E7DDCC] bg-[#FDFBF6]">
-          <div className="container-nspl grid grid-cols-2 gap-y-5 divide-x divide-[#E2D7C7] py-6 sm:grid-cols-4 sm:gap-y-0 sm:py-7">
+          <div className="container-nspl grid grid-cols-2 gap-y-5 divide-x divide-[#E2D7C7] py-6 sm:grid-cols-3 sm:gap-y-0 sm:py-7 lg:grid-cols-6">
             {[
-              ["Ocean", "International freight"],
-              ["Air", "Time-sensitive cargo"],
-              ["Land", "Ground connectivity"],
-              ["Project", "Specialised cargo"],
+              ["NVOCC", "& Ocean Freight"],
+              ["Freight", "Forwarding"],
+              ["Project Cargo", "& Breakbulk"],
+              ["Transportation", "& 3PL"],
+              ["Warehousing", "& Distribution"],
+              ["Customs", "Coordination"],
             ].map(([title, text]) => (
               <div
                 key={title}
-                className="px-3 first:pl-0 sm:px-4 sm:first:pl-0 sm:last:pr-0 lg:px-7"
+                className="px-3 first:pl-0 sm:px-4 sm:first:pl-0 sm:last:pr-0 lg:px-5"
               >
-                <p className="font-serif text-base text-nspl-brown sm:text-lg">
+                <p className="font-serif text-sm text-nspl-brown sm:text-base">
                   {title}
                 </p>
                 <p className="mt-1 text-[10px] leading-snug text-nspl-copper sm:text-[11px]">
@@ -690,36 +767,43 @@ function App() {
 
         {/* ABOUT */}
         <section id="about" className="bg-white">
-          <div className="container-nspl grid gap-10 py-16 sm:gap-14 sm:py-24 lg:grid-cols-[.75fr_1.25fr] lg:items-center">
+          <div className="container-nspl grid gap-8 py-14 sm:gap-14 sm:py-24 lg:grid-cols-[.75fr_1.25fr] lg:items-center">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.25em] text-nspl-goldDark">
                 About NSPL
               </p>
-              <h2 className="mt-4 font-serif text-3xl leading-tight text-nspl-brown sm:text-4xl sm:text-5xl">
-                A dependable freight forwarding partner for every movement.
+              <h2 className="mt-4 font-serif text-2xl leading-tight text-nspl-brown xs:text-3xl sm:text-4xl md:text-5xl">
+                A dependable NVOCC and logistics partner for every movement.
               </h2>
             </div>
 
             <div>
-              <p className="text-base leading-7 text-nspl-copper sm:text-lg sm:leading-8">
-                Naventra Shipping India Pvt Ltd is a full-service logistics
-                company headquartered in Navi Mumbai, Maharashtra. We bring
-                together freight forwarding, domestic transportation,
-                warehousing, customs clearance and project logistics under one
-                roof, so businesses across India can move cargo with fewer
-                handoffs and more visibility.
+              <p className="text-[15px] leading-7 text-nspl-copper sm:text-lg sm:leading-8">
+                Naventra Shipping India Pvt Ltd is a Navi Mumbai based NVOCC,
+                ocean freight and integrated logistics company. We develop
+                ocean-freight solutions around cargo requirements, equipment
+                availability, sailing options, transit expectations and
+                commercial priorities, coordinating with mainline carriers,
+                depots, terminals, transporters and overseas partners for smooth
+                shipment execution.
               </p>
-              <p className="mt-4 text-base leading-7 text-nspl-copper sm:text-lg sm:leading-8">
-                Whether you're shipping a single container by ocean freight,
-                arranging urgent air cargo, or coordinating a multi-leg project
-                logistics movement, our team manages the details so you can stay
-                focused on your business.
+              <p className="mt-4 text-[15px] leading-7 text-nspl-copper sm:text-lg sm:leading-8">
+                Beyond ocean freight, NSPL is positioned to coordinate a wider
+                logistics portfolio: project and breakbulk cargo, heavy-lift and
+                special equipment, warehousing and 3PL, customs clearance and
+                domestic transportation, provided directly where applicable and
+                through authorised or qualified partners where specialist
+                licences, infrastructure or equipment are required.
               </p>
 
               <div className="mt-8 grid gap-4 sm:grid-cols-3">
                 {[
-                  ["01", "Understand", "Cargo, route and timeline."],
-                  ["02", "Coordinate", "The right mode and partners."],
+                  ["01", "Understand", "Cargo, route and required timeline."],
+                  [
+                    "02",
+                    "Coordinate",
+                    "The right mode, equipment and partners.",
+                  ],
                   ["03", "Deliver", "Visibility through every milestone."],
                 ].map(([num, title, text]) => (
                   <div
@@ -747,22 +831,22 @@ function App() {
           id="services"
           className="border-y border-[#E7DDCC] bg-[#FDFBF6]"
         >
-          <div className="container-nspl py-16 sm:py-24">
+          <div className="container-nspl py-14 sm:py-24">
             <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
               <div className="max-w-2xl">
                 <p className="text-xs font-bold uppercase tracking-[0.25em] text-nspl-goldDark">
                   Our services
                 </p>
-                <h2 className="mt-4 font-serif text-3xl text-nspl-brown sm:text-4xl sm:text-5xl">
-                  Freight forwarding and logistics services, without the
-                  complexity.
+                <h2 className="mt-4 font-serif text-2xl text-nspl-brown xs:text-3xl sm:text-4xl md:text-5xl">
+                  NVOCC, freight forwarding and integrated logistics, without
+                  the complexity.
                 </h2>
               </div>
               <p className="max-w-md text-sm leading-7 text-nspl-copper">
-                A focused range of shipping and logistics services — ocean
-                freight, air freight, land transport, project cargo, warehousing
-                and customs clearance — brought together under one roof for
-                businesses across India.
+                A focused range of shipping and logistics services: NVOCC &
+                ocean freight, freight forwarding, project cargo, transportation
+                & 3PL, warehousing & distribution and customs coordination,
+                brought together under one roof.
               </p>
             </div>
 
@@ -770,9 +854,9 @@ function App() {
               {services.map(({ icon: Icon, title, text, tag }) => (
                 <article
                   key={title}
-                  className="group relative overflow-hidden rounded-3xl border border-[#E1D6C5] bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-nspl-gold/50 hover:shadow-[0_18px_45px_rgba(92,58,11,.10)] sm:p-7"
+                  className="group relative overflow-hidden rounded-3xl border border-[#E1D6C5] bg-white p-5 transition duration-300 hover:-translate-y-1 hover:border-nspl-gold/50 hover:shadow-[0_18px_45px_rgba(92,58,11,.10)] sm:p-6 md:p-7"
                 >
-                  <div className="absolute right-6 top-6 text-[9px] font-bold tracking-[0.22em] text-[#B7AA99]">
+                  <div className="absolute right-5 top-5 text-[9px] font-bold tracking-[0.22em] text-[#B7AA99] sm:right-6 sm:top-6">
                     {tag}
                   </div>
 
@@ -780,7 +864,7 @@ function App() {
                     <Icon size={27} strokeWidth={1.7} />
                   </div>
 
-                  <h3 className="mt-6 font-serif text-xl text-nspl-brown sm:mt-7 sm:text-2xl">
+                  <h3 className="mt-6 font-serif text-lg text-nspl-brown sm:mt-7 sm:text-xl md:text-2xl">
                     {title}
                   </h3>
                   <p className="mt-3 text-sm leading-7 text-nspl-copper">
@@ -799,49 +883,204 @@ function App() {
           </div>
         </section>
 
-        {/* PROCESS / BUSINESS ELEMENTS */}
+        {/* NVOCC & OCEAN FREIGHT SOLUTIONS - detailed capabilities from the profile */}
         <section className="bg-white">
-          <div className="container-nspl py-16 sm:py-24">
+          <div className="container-nspl grid gap-10 py-14 sm:py-24 lg:grid-cols-2 lg:gap-16">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-nspl-goldDark">
+                NVOCC & Ocean Freight Solutions
+              </p>
+              <h2 className="mt-4 font-serif text-2xl leading-tight text-nspl-brown xs:text-3xl sm:text-4xl">
+                Core NVOCC capabilities
+              </h2>
+              <p className="mt-4 text-[15px] leading-7 text-nspl-copper">
+                Our operating model is designed to coordinate with mainline
+                carriers, depots, terminals, transporters and overseas partners
+                for smooth shipment execution.
+              </p>
+
+              <ul className="mt-8 space-y-4">
+                {nvoccCapabilities.map((item) => (
+                  <li key={item} className="flex gap-3">
+                    <CheckCircle2
+                      size={19}
+                      className="mt-0.5 shrink-0 text-nspl-goldDark"
+                    />
+                    <span className="text-sm leading-6 text-nspl-copper sm:text-[15px]">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-nspl-goldDark">
+                International Freight Forwarding
+              </p>
+              <h2 className="mt-4 font-serif text-2xl leading-tight text-nspl-brown xs:text-3xl sm:text-4xl">
+                A single communication window
+              </h2>
+              <p className="mt-4 text-[15px] leading-7 text-nspl-copper">
+                For customers requiring broader forwarding support, NSPL
+                coordinates sea-freight movements with origin/destination
+                partners and domestic logistics providers, for booking,
+                documentation, transport coordination, shipment status and
+                exception management.
+              </p>
+
+              <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                {forwardingGrid.map(([title, text]) => (
+                  <div
+                    key={title}
+                    className="rounded-2xl border border-[#E6DCCB] bg-[#FDFBF6] p-5"
+                  >
+                    <h3 className="font-serif text-lg text-nspl-brown">
+                      {title}
+                    </h3>
+                    <p className="mt-1.5 text-xs leading-5 text-nspl-copper sm:text-sm">
+                      {text}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* INTEGRATED LOGISTICS PORTFOLIO */}
+        <section
+          id="portfolio"
+          className="border-y border-[#E7DDCC] bg-[#FDFBF6]"
+        >
+          <div className="container-nspl py-14 sm:py-24">
+            <div className="max-w-2xl">
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-nspl-goldDark">
+                Integrated logistics portfolio
+              </p>
+              <h2 className="mt-4 font-serif text-2xl text-nspl-brown xs:text-3xl sm:text-4xl md:text-5xl">
+                A wider logistics portfolio around the core ocean-freight
+                movement.
+              </h2>
+              <p className="mt-4 text-[15px] leading-7 text-nspl-copper">
+                Services are provided directly where applicable and through
+                authorised or qualified partners where specialist licences,
+                infrastructure or equipment are required.
+              </p>
+            </div>
+
+            <div className="mt-10 grid gap-5 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3">
+              {portfolio.map(({ title, text }) => (
+                <div
+                  key={title}
+                  className="rounded-2xl border border-[#E1D6C5] bg-white p-6"
+                >
+                  <h3 className="font-serif text-lg text-nspl-brown sm:text-xl">
+                    {title}
+                  </h3>
+                  <p className="mt-2.5 text-sm leading-6 text-nspl-copper">
+                    {text}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CARGO EXPERTISE & CUSTOMER SEGMENTS */}
+        <section id="industries" className="bg-white">
+          <div className="container-nspl py-14 sm:py-24">
+            <div className="max-w-2xl">
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-nspl-goldDark">
+                Cargo expertise & customer segments
+              </p>
+              <h2 className="mt-4 font-serif text-2xl text-nspl-brown xs:text-3xl sm:text-4xl md:text-5xl">
+                Responsive coordination, tailored to your cargo.
+              </h2>
+              <p className="mt-4 text-[15px] leading-7 text-nspl-copper">
+                We aim to support a broad range of non-restricted commercial
+                cargo, subject to carrier acceptance and applicable regulations.
+              </p>
+            </div>
+
+            <div className="mt-10 grid gap-5 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3">
+              {cargoSegments.map(([title, text]) => (
+                <div
+                  key={title}
+                  className="rounded-2xl border border-[#E6DCCB] bg-[#FDFBF6] p-6"
+                >
+                  <h3 className="font-serif text-lg text-nspl-brown sm:text-xl">
+                    {title}
+                  </h3>
+                  <p className="mt-2.5 text-sm leading-6 text-nspl-copper">
+                    {text}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* HOW WE WORK */}
+        <section className="border-y border-[#E7DDCC] bg-[#FDFBF6]">
+          <div className="container-nspl py-14 sm:py-24">
             <div className="text-center">
               <p className="text-xs font-bold uppercase tracking-[0.25em] text-nspl-goldDark">
                 How we work
               </p>
-              <h2 className="mt-4 font-serif text-3xl text-nspl-brown sm:text-4xl sm:text-5xl">
+              <h2 className="mt-4 font-serif text-2xl text-nspl-brown xs:text-3xl sm:text-4xl md:text-5xl">
                 A clear path from booking to delivery.
               </h2>
             </div>
 
-            <div className="relative mt-12 grid gap-8 sm:mt-14 sm:grid-cols-2 md:grid-cols-4">
-              <div className="absolute left-[12%] right-[12%] top-8 hidden h-px bg-[#DCCEB9] md:block" />
-              {[
-                [Route, "Plan", "Understand the cargo, route and requirement."],
-                [
-                  Container,
-                  "Coordinate",
-                  "Select the right mode, partners and documentation.",
-                ],
-                [
-                  PackageCheck,
-                  "Move",
-                  "Track the shipment through its key milestones.",
-                ],
-                [
-                  CheckCircle2,
-                  "Deliver",
-                  "Complete the journey with dependable support.",
-                ],
-              ].map(([Icon, title, text], index) => (
+            <div className="mt-12 grid gap-8 sm:mt-14 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+              {howWeWork.map(([Icon, title, text], index) => (
                 <div key={title} className="relative text-center">
                   <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-nspl-gold/30 bg-white text-nspl-goldDark shadow-sm">
-                    <Icon size={25} strokeWidth={1.6} />
+                    <Icon size={24} strokeWidth={1.6} />
                   </div>
                   <span className="mt-4 block text-[10px] font-bold tracking-[0.2em] text-nspl-goldDark">
                     0{index + 1}
                   </span>
-                  <h3 className="mt-2 font-serif text-xl text-nspl-brown">
+                  <h3 className="mt-2 font-serif text-lg text-nspl-brown">
                     {title}
                   </h3>
-                  <p className="mx-auto mt-2 max-w-[220px] text-sm leading-6 text-nspl-copper">
+                  <p className="mx-auto mt-2 max-w-[220px] text-xs leading-6 text-nspl-copper sm:max-w-[200px] sm:text-sm">
+                    {text}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* STRATEGIC FOUNDATIONS - Vision / Mission / Values */}
+        <section className="bg-white">
+          <div className="container-nspl py-14 sm:py-24">
+            <div className="max-w-2xl">
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-nspl-goldDark">
+                Our strategic foundations
+              </p>
+              <h2 className="mt-4 font-serif text-2xl text-nspl-brown xs:text-3xl sm:text-4xl md:text-5xl">
+                What guides NSPL forward.
+              </h2>
+            </div>
+
+            <div className="mt-10 grid gap-5 sm:mt-12 sm:grid-cols-3">
+              {foundations.map(({ icon: Icon, title, text }) => (
+                <div
+                  key={title}
+                  className="rounded-2xl border border-[#E1D6C5] bg-[#FDFBF6] p-6 sm:p-7"
+                >
+                  <Icon
+                    className="text-nspl-goldDark"
+                    size={26}
+                    strokeWidth={1.6}
+                  />
+                  <h3 className="mt-5 font-serif text-xl text-nspl-brown">
+                    {title}
+                  </h3>
+                  <p className="mt-2.5 text-sm leading-6 text-nspl-copper">
                     {text}
                   </p>
                 </div>
@@ -852,15 +1091,15 @@ function App() {
 
         {/* GLOBAL REACH */}
         <section className="border-y border-[#E7DDCC] bg-[#FDFBF6]">
-          <div className="container-nspl grid gap-10 py-16 sm:gap-12 sm:py-20 lg:grid-cols-[1fr_auto] lg:items-center">
+          <div className="container-nspl grid gap-10 py-14 sm:gap-12 sm:py-20 lg:grid-cols-[1fr_auto] lg:items-center">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.25em] text-nspl-goldDark">
                 Global connectivity
               </p>
-              <h2 className="mt-4 max-w-3xl font-serif text-3xl leading-tight text-nspl-brown sm:text-4xl sm:text-5xl">
+              <h2 className="mt-4 max-w-3xl font-serif text-2xl leading-tight text-nspl-brown xs:text-3xl sm:text-4xl md:text-5xl">
                 Supporting international trade across key global markets.
               </h2>
-              <p className="mt-5 max-w-2xl text-base leading-7 text-nspl-copper">
+              <p className="mt-5 max-w-2xl text-[15px] leading-7 text-nspl-copper">
                 From our base in Navi Mumbai, we coordinate freight,
                 transportation, documentation and destination-side support for
                 import and export businesses trading with the Middle East, Asia,
@@ -879,11 +1118,11 @@ function App() {
               </div>
             </div>
 
-            <div className="relative mx-auto flex h-32 w-32 items-center justify-center rounded-full border border-nspl-gold/30 bg-white shadow-sm sm:h-44 sm:w-44">
+            <div className="relative mx-auto flex h-28 w-28 items-center justify-center rounded-full border border-nspl-gold/30 bg-white shadow-sm sm:h-44 sm:w-44">
               <div className="absolute inset-4 rounded-full border border-nspl-gold/15" />
               <div className="absolute inset-9 rounded-full border border-nspl-brown/10" />
               <Globe2
-                size={52}
+                size={46}
                 strokeWidth={1}
                 className="text-nspl-goldDark sm:hidden"
               />
@@ -898,51 +1137,24 @@ function App() {
 
         {/* WHY NSPL */}
         <section id="why-nspl" className="bg-nspl-deep text-white">
-          <div className="container-nspl grid gap-10 py-16 sm:gap-14 sm:py-24 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
-            <div>
+          <div className="container-nspl py-14 sm:py-24">
+            <div className="max-w-2xl">
               <p className="text-xs font-bold uppercase tracking-[0.25em] text-nspl-gold">
                 Why NSPL
               </p>
-              <h2 className="mt-4 font-serif text-3xl leading-tight sm:text-4xl sm:text-5xl">
+              <h2 className="mt-4 font-serif text-2xl leading-tight xs:text-3xl sm:text-4xl md:text-5xl">
                 Professional service. Personal attention.
               </h2>
-              <p className="mt-6 max-w-xl text-base leading-7 text-nspl-sand sm:leading-8">
-                As a dedicated freight forwarding and logistics company, we
-                focus on the details behind every shipment — documentation,
-                routing, timelines and communication — so our customers can
-                focus on their business.
+              <p className="mt-6 max-w-xl text-[15px] leading-7 text-nspl-sand sm:leading-8">
+                As a dedicated NVOCC, freight forwarding and logistics company,
+                we focus on the details behind every shipment: documentation,
+                routing, timelines and communication, so our customers can focus
+                on their business.
               </p>
-              <a
-                href="#contact"
-                className="mt-8 inline-flex items-center gap-2 rounded-full border border-nspl-gold/50 px-6 py-3 text-sm font-semibold text-nspl-paleGold transition hover:bg-nspl-gold hover:text-nspl-deep"
-              >
-                Speak with our team <ArrowRight size={16} />
-              </a>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2">
-              {[
-                [
-                  ShieldCheck,
-                  "Dependable",
-                  "Clear processes and careful coordination for every movement.",
-                ],
-                [
-                  Clock3,
-                  "Time focused",
-                  "Solutions designed around your cargo and delivery timeline.",
-                ],
-                [
-                  Headphones,
-                  "Responsive",
-                  "Practical support when you need an answer or update.",
-                ],
-                [
-                  Boxes,
-                  "Flexible",
-                  "From regular freight to specialised project cargo requirements.",
-                ],
-              ].map(([Icon, title, text]) => (
+            <div className="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3">
+              {whyNspl.map(([Icon, title, text]) => (
                 <div
                   key={title}
                   className="rounded-2xl border border-white/10 bg-white/5 p-5 sm:p-6"
@@ -957,17 +1169,41 @@ function App() {
                 </div>
               ))}
             </div>
+
+            <div className="mt-10 flex flex-col items-start gap-6 rounded-2xl border border-nspl-gold/30 bg-white/5 p-6 sm:mt-12 sm:flex-row sm:items-center sm:justify-between sm:p-8">
+              <div>
+                <h3 className="font-serif text-xl text-white sm:text-2xl">
+                  Partner with NSPL
+                </h3>
+                <p className="mt-2 max-w-xl text-sm leading-6 text-nspl-sand">
+                  We welcome enquiries from exporters, importers, manufacturers,
+                  traders, freight partners and overseas agents. Share your
+                  upcoming shipment or RFQ and we'll work to develop a
+                  practical, competitive solution.
+                </p>
+              </div>
+              <a
+                href="#contact"
+                className="inline-flex w-full shrink-0 items-center justify-center gap-2 rounded-full border border-nspl-gold/50 px-6 py-3 text-sm font-semibold text-nspl-paleGold transition hover:bg-nspl-gold hover:text-nspl-deep sm:w-auto sm:justify-start"
+              >
+                Speak with our team <ArrowRight size={16} />
+              </a>
+            </div>
+
+            <p className="mt-10 text-center font-serif text-base italic text-nspl-paleGold sm:text-lg md:text-xl">
+              "Your cargo. Our commitment. One logistics partner."
+            </p>
           </div>
         </section>
 
-        {/* FAQ — SEO-friendly structured content */}
+        {/* FAQ - SEO-friendly structured content */}
         <section id="faq" className="bg-white">
-          <div className="container-nspl py-16 sm:py-24">
+          <div className="container-nspl py-14 sm:py-24">
             <div className="max-w-2xl">
               <p className="text-xs font-bold uppercase tracking-[0.25em] text-nspl-goldDark">
                 Frequently asked questions
               </p>
-              <h2 className="mt-4 font-serif text-3xl text-nspl-brown sm:text-4xl sm:text-5xl">
+              <h2 className="mt-4 font-serif text-2xl text-nspl-brown xs:text-3xl sm:text-4xl md:text-5xl">
                 Common questions about our shipping services.
               </h2>
             </div>
@@ -982,7 +1218,7 @@ function App() {
                       aria-expanded={isOpen}
                       className="flex w-full items-center justify-between gap-4 py-5 text-left sm:py-6"
                     >
-                      <span className="font-serif text-base text-nspl-brown sm:text-lg">
+                      <span className="font-serif text-sm text-nspl-brown sm:text-lg">
                         {item.q}
                       </span>
                       <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-nspl-gold/30 text-nspl-goldDark">
@@ -1003,46 +1239,48 @@ function App() {
 
         {/* CTA / QUOTE FORM */}
         <section id="contact" className="border-b border-[#DCCEB9] bg-white">
-          <div className="container-nspl py-14 sm:py-20">
-            <div className="relative overflow-hidden rounded-[1.5rem] border border-[#DCCEB9] bg-[#FDFBF6] px-6 py-10 sm:rounded-[2rem] sm:px-10 sm:py-12 lg:px-14">
+          <div className="container-nspl py-12 sm:py-20">
+            <div className="relative overflow-hidden rounded-2xl border border-[#DCCEB9] bg-[#FDFBF6] px-5 py-8 sm:rounded-[2rem] sm:px-10 sm:py-12 lg:px-14">
               <div className="pointer-events-none absolute right-[-5rem] top-[-6rem] hidden h-52 w-52 rounded-full border border-nspl-gold/20 sm:block" />
               <div className="pointer-events-none absolute right-10 top-10 hidden h-3 w-3 rounded-full bg-nspl-gold sm:block" />
 
-              <div className="relative grid gap-10 lg:grid-cols-[.85fr_1.15fr] lg:items-start lg:gap-14">
+              <div className="relative grid gap-8 lg:grid-cols-[.85fr_1.15fr] lg:items-start lg:gap-14">
                 <div>
                   <p className="text-xs font-bold uppercase tracking-[0.25em] text-nspl-goldDark">
                     Start a conversation
                   </p>
-                  <h2 className="mt-4 max-w-lg font-serif text-3xl leading-tight text-nspl-deep sm:text-4xl sm:text-5xl">
+                  <h2 className="mt-4 max-w-lg font-serif text-2xl leading-tight text-nspl-deep xs:text-3xl sm:text-4xl md:text-5xl">
                     Let's move your next shipment.
                   </h2>
                   <p className="mt-4 max-w-md text-nspl-copper">
                     Share your cargo, origin and destination with our team and
-                    discover the right freight forwarding and logistics solution
-                    for your business.
+                    discover the right NVOCC, freight forwarding and logistics
+                    solution for your business.
                   </p>
 
                   <div className="mt-8 space-y-4 text-sm text-nspl-copper">
-                    <p className="flex gap-3">
+                    <p className="flex gap-3 break-words">
                       <Phone
                         size={17}
                         className="mt-0.5 shrink-0 text-nspl-goldDark"
                       />
-                      +91 XX XXX XXXXX
+                      +91 86523 24515
                     </p>
-                    <p className="flex gap-3">
+                    <p className="flex flex-wrap gap-x-1.5 gap-y-0 break-words">
                       <Mail
                         size={17}
                         className="mt-0.5 shrink-0 text-nspl-goldDark"
                       />
-                      info@nspl.in
+                      <span>ops@nsplmum.in | sales@nsplmum.in</span>
                     </p>
+
                     <p className="flex gap-3">
                       <MapPin
                         size={17}
                         className="mt-0.5 shrink-0 text-nspl-goldDark"
                       />
-                      Navi Mumbai, Maharashtra, India
+                      604, 6th Floor, Akshat Elite, Bhendkhal Road, Dronagri,
+                      Navi Mumbai, Raigad - 400702
                     </p>
                   </div>
                 </div>
@@ -1064,12 +1302,16 @@ function App() {
               width="240"
               height="100"
               loading="lazy"
-              className="h-16 w-auto max-w-[220px] rounded bg-white object-contain sm:h-20 sm:max-w-[260px]"
+              className="h-14 w-auto max-w-[190px] rounded bg-white object-contain sm:h-20 sm:max-w-[260px]"
             />
             <p className="mt-5 max-w-md text-sm leading-7 text-nspl-copper">
-              Naventra Shipping India Pvt Ltd — a Navi Mumbai based freight
-              forwarding and logistics company, bridging possibilities across
-              borders through dependable ocean, air and land shipping solutions.
+              Naventra Shipping India Pvt Ltd a Navi Mumbai based NVOCC, ocean
+              freight and integrated logistics company. Moving possibilities to
+              a brighter tomorrow through dependable ocean, air and land
+              coordination.
+            </p>
+            <p className="mt-4 text-xs font-semibold uppercase tracking-[0.15em] text-nspl-goldDark">
+              People • Partnership • Progress • Global Reach
             </p>
           </div>
 
@@ -1099,17 +1341,20 @@ function App() {
                   size={17}
                   className="mt-0.5 shrink-0 text-nspl-goldDark"
                 />
-                6TH FLOOR, 604, Akshat Elite, Bhendkhal Road, Aashirwad
-                Stationery & General Store, Dronagiri, Navi Mumbai, Raigad
-                400702
+                604, 6th Floor, Akshat Elite, Bhendkhal Road, Dronagri, Navi
+                Mumbai, Raigad - 400702
               </p>
               <p className="flex gap-3">
                 <Phone size={17} className="shrink-0 text-nspl-goldDark" />
-                +91 XX XXX XXXXX
+                +91 86523 24515
               </p>
-              <p className="flex gap-3">
+              <p className="flex gap-3 break-all">
                 <Mail size={17} className="shrink-0 text-nspl-goldDark" />
-                info@nspl.in
+                ops@nsplmum.in
+              </p>
+              <p className="flex gap-3 break-all">
+                <Mail size={17} className="shrink-0 text-nspl-goldDark" />
+                sales@nsplmum.in
               </p>
             </div>
           </div>
